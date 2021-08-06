@@ -1,0 +1,18 @@
+    getgenv().AutoFarm = true
+    while getgenv().AutoFarm do
+    for _,v in pairs(game:GetService("Workspace").Dummies:GetDescendants()) do
+    if string.find(v.Name, "Thug") and v:FindFirstChild("HumanoidRootPart") then
+        repeat
+            wait()
+            local args = {
+                [1] = 6
+                    }
+        game:GetService("ReplicatedStorage").Remotes.Combat:FireServer(unpack(args))
+            v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,-15,0)
+            v:FindFirstChild("HumanoidRootPart").Size = Vector3.new(30,30,30)
+            v:FindFirstChild("HumanoidRootPart").Transparency = .2
+        until v.Humanoid.Health == 0
+    end
+    end
+    wait()
+    end

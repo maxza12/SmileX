@@ -1,0 +1,13 @@
+for i=1,100 do
+   Game:GetService("ReplicatedStorage").Events.Sell:FireServer(
+       "Chypset Dragon 300",
+       10000000
+   )  
+   wait()
+   Game:GetService("ReplicatedStorage").Events.BuyCard:FireServer(
+       "Chypset Dragon 300",
+       Game:GetService("Workspace")["Region_Chypset"].Shows["7"],
+       10000000
+   )
+   wait()
+end

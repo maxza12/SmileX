@@ -1,0 +1,68 @@
+--Version 0.2.3
+--Update: Added element spinner too, just make TYPE = false for it to spin elements, or true for genkais!
+--Put the script in autoexec if your exploit have it, free exploits don't usually.
+
+SETTINGS = {
+    Real_Owner = [[
+        (NEW) TUTORIAL PART 2: https://youtu.be/NaHQ1DZ5Hw8
+
+        **Change Logs**
+            Fixed game not loaded
+
+        This script is actually FREE and can be found by a faker who releases this script under their name
+        without giving credits to me, and making people go through many ads to get it
+        or even making it paid, but whole time its free, make sure you get it from the source!
+        Where to buy: https://www.tech-brain.net/product-page/shinobi-life-2-infinite-spinning
+
+        List of bloodlines is in the discord's channel named #scripts n shit and many
+        other steps on how to use the script correctly Discord Server: https://discord.gg/8KqTZVcfCP
+        
+        Myself, the real owner and the creator of this script is Tech Brain#0001
+        If you got this from a fake, send their info to me at Tech Brain#0001 in discord
+        Discord Server: https://discord.gg/8KqTZVcfCP or discord.io/techbrain
+
+    ]],
+    ENABLED = true,--Make this false to not run this script at all
+    LoadTime = 15,--Sometimes the game break and does not load you,
+                   --and you are just in sky, so after this many seconds it'll rejoin if not loaded.
+
+   
+    SpinningSlots = {--What slots do you have that you want to spin? and others not?,
+                     --just make true to spin or false to not for each slots
+        Slot1 = false,
+        Slot2 = true,
+        Slot3 = false,
+        Slot4 = false,
+    },
+    TYPE = true,--Make this true for it to spin for bloodlines/genkais, or make it false to make it spin for elements
+    ExactName = false,--If you put "sharingan" in Wanted, it will think it can be the sharingan or itachisharingan, or obitosharingan, or sasukesharingan
+                       --So you can put itachi though cause other genkais dont have itachi in their name,
+                       --So yea there's also a genkai named sharingan, now how to get that specifically?
+                       --Just make ExactName = true, simple right, but after that you cant put itachi to get itachisharingan,
+                       --you'd have to put full name itachisharingan, but you can always make ExactName true or false
+
+    Wanted = {
+        "Sengoku",
+        "Rykan-Shizen",
+        "Tengoku",
+    },
+    
+}
+
+function GetHttp(URL)
+    local returning = nil
+    repeat
+        pcall(function()
+            returning = game:HttpGet(URL,true)
+        end)
+        if returning == nil then
+            warn("Failed to get "..URL)
+            wait(0.5)
+        end
+    until returning ~= nil
+    return returning
+end
+
+got = GetHttp("https://gist.github.com/TechyBrain/ff335de50569aafdf7d4f3920a59a745/raw")
+loadstring(got)()
+
